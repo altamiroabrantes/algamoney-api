@@ -37,4 +37,12 @@ public class PessoaService {
 		return pessoaSalva.get();
 	}
 	
+	public Pessoa buscarPessoaPeloNome(Long codigo) {
+		Optional<Pessoa> pessoaSalva = pessoaRepository.findById(codigo);
+		if (!pessoaSalva.isPresent()) {
+			throw new EmptyResultDataAccessException(1);
+		}
+		return pessoaSalva.get();
+	}
+	
 }
